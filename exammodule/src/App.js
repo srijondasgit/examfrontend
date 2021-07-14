@@ -11,7 +11,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://github.com"
+          href="https://githubxssfsf.com"
           target="_blank"
           rel="noopener noreferrer"
         >
