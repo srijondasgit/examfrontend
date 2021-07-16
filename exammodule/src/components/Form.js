@@ -8,7 +8,8 @@ function Form() {
   
   const [name, setName] = useState('');
   const [email, setemail] = useState('');
-
+  
+  //value of role is hardcoded, need to be dynamical, either Teacher or Student.
   const [role, setRole] = useState('Teacher');
 
   const [loading, setLoading] = useState(false);
@@ -47,6 +48,7 @@ function Form() {
       setName('');
       setemail('');
 
+      //value of setRole is hardcoded, need to be settle dynamically.
       setRole("Teacher");
 
       setLoading(false);
