@@ -3,14 +3,13 @@ import axios from "axios";
 import Dropdown from './Dropdown';
 
 
- 
 function Form() {
 
   
   const [name, setName] = useState('');
   const [email, setemail] = useState('');
 
-  const [role, setRole] = useState(true);
+  const [role, setRole] = useState('Teacher');
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -19,29 +18,36 @@ function Form() {
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
+    
     const data = { 
       name: name,
       email: email,
       role: role
 
     }
+
+
+    const token =
+  "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsImV4cCI6MTYxMDgxNTMzNCwiaWF0IjoxNjEwNzc5MzM0fQ.V9cNclexa3JXvEHJge4-W6xymBMbeum798OIsw11Jcc";
+
     
     const headers = {
-            "key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsImV4cCI6MTYxMDgxNTMzNCwiaWF0IjoxNjEwNzc5MzM0fQ.V9cNclexa3JXvEHJge4-W6xymBMbeum798OIsw11Jcc",
-						"type": "text",
-						"disabled": true
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+  
+      key: "Authorization",
+      value: `Bearer ${token}`,
+      type: "text",
+      disabled: true,
     }
 
-   
-
-
-    axios.post('https://reqres.in/api/users', data, {headers}).then(res => {
+  
+    axios.post('/mail/register', data, {headers}).then(res => {
       setData(res.data);
       setName('');
       setemail('');
 
-      setRole(true);
+      setRole("Teacher");
 
       setLoading(false);
     }).catch(err => {
