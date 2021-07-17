@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const Dropdown = () => {
-    return ( 
+  return (
+   
+    <div>
+      <select
+        className="form-select form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+        id="dropdown"
+      >
+        <option select="default">Select Role</option>
+        <option value="1">Teacher</option>
+        <option value="2">Student</option>
+      </select>
+    </div>
+  );
+};
 
-        <div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Select Role
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a className="dropdown-item" >Teacher</a></li>
-    <li><a className="dropdown-item" >Student</a></li>
-    
-  </ul>
-</div>
-
-     );
-}
- 
 export default Dropdown;
