@@ -21,21 +21,9 @@ function Form() {
       role: role,
     };
 
-    const token =
-      "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsImV4cCI6MTYxMDgxNTMzNCwiaWF0IjoxNjEwNzc5MzM0fQ.V9cNclexa3JXvEHJge4-W6xymBMbeum798OIsw11Jcc";
-
-    const headers = {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-
-      key: "Authorization",
-      value: `Bearer ${token}`,
-      type: "text",
-      disabled: true,
-    };
-
+   
     axios
-      .post("/mail/register", data, { headers })
+      .post("/mail/register", data)
       .then((res) => {
         setData(res.data);
         setName("");
