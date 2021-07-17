@@ -69,7 +69,7 @@ function Login() {
 
         {isError && (
           <small className="mt-3 d-inline-block text-danger">
-            Something went wrong. Please try again later.
+            Check username/password, and try again later.
           </small>
         )}
         <button
