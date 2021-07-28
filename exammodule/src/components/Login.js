@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -49,6 +51,7 @@ function Login() {
             placeholder="Enter userName"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            
           />
         </div>
 
@@ -72,14 +75,22 @@ function Login() {
             Check username/password, and try again later.
           </small>
         )}
-        <button
+        <Link to="/"
           type="submit"
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
           disabled={loading}
         >
           {loading ? "Loading..." : "Log In"}
-        </button>
+        </Link>
+
+        <br />
+        
+        <Link to="/Reset" className="btn btn-secondary mt-3">
+          Forgot Password?
+        </Link>
+
+
         {data && (
           <div className="mt-3">
             <strong>Output:</strong>
