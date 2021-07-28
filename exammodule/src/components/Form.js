@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Form() {
   const [name, setName] = useState("");
@@ -81,8 +82,8 @@ function Form() {
             onChange={(e) => setRole(e.target.value)}
           >
             <option select="default">Select Role</option>
-            <option value="Teacher">Teacher</option>
-            <option value="Student">Student</option>
+            <option value="TEACHER">Teacher</option>
+            <option value="STUDENT">Student</option>
           </select>
         </div>
 
@@ -91,14 +92,14 @@ function Form() {
             Something went wrong. Please try again later.
           </small>
         )}
-        <button
+        <Link to="/Login"
           type="submit"
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
           disabled={loading}
         >
           {loading ? "Loading..." : "Submit"}
-        </button>
+        </Link>
         {data && (
           <div className="mt-3">
             <strong>Output:</strong>
