@@ -86,10 +86,9 @@ function Login() {
 
         <br />
         
-        <Link to="/Reset" className="btn btn-secondary mt-3">
+        <Link to="/password/Reset" className="btn btn-secondary mt-3">
           Forgot Password?
         </Link>
-
 
         {data && (
           <div className="mt-3">
