@@ -4,32 +4,31 @@ import Login from './components/Login';
 import Reset from './components/Reset';
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const App = () => {
-  return (
+// const App = () => {
+//   return (
 
-    <div className="wrapper">
+  //   <div className="wrapper">
     
-    <BrowserRouter>
-    <Navbar />
-      <Switch>
+  //   <BrowserRouter>
+  //   <Navbar />
+  //     <Switch>
         
-        <Route path="/user/authenticate">
-          <Login />
-        </Route>
+  //       <Route path="/user/authenticate">
+  //         <Login />
+  //       </Route>
 
-        <Route path="/user/register">
-          <Form />
-        </Route>
+  //       <Route path="/user/register">
+  //         <Form />
+  //       </Route>
 
-        <Route path="/password/reset">
-          <Reset />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  </div>
+  //       <Route path="/password/reset">
+  //         <Reset />
+  //       </Route>
+  //     </Switch>
+  //   </BrowserRouter>
+  // </div>
 
 
     // <div>
@@ -42,32 +41,29 @@ const App = () => {
     //     </div>
     //   </BrowserRouter>
     // </div>
-  );
-};
-
-export default App;
-
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Form />
-//       <br />
-//       <hr />
-//       <Login />
-//       <br />
-//       <hr />
-//       <Reset />
-//       <br />
-//       <hr />
-//       <AddTestHeader />
-//       <br />
-//       <hr />
-//       <AddQuestion />
-//     </div>
 //   );
-// }
+// };
 
 // export default App;
+
+function App() {
+  return (
+    <div className="App">
+      <Form />
+      <br />
+      <hr />
+      <Login />
+      <br />
+      <hr />
+      <Reset />
+      <br />
+      <hr />
+      <AddTestHeader />
+      <br />
+      <hr />
+      <AddQuestion />
+    </div>
+  );
+}
+
+export default App;
