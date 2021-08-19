@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Form() {
   const [name, setName] = useState("");
@@ -92,14 +92,14 @@ function Form() {
             Something went wrong. Please try again later.
           </small>
         )}
-        <Link to="/Login"
+        <button
           type="submit"
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
           disabled={loading}
         >
           {loading ? "Loading..." : "Submit"}
-        </Link>
+        </button>
         {data && (
           <div className="mt-3">
             <strong>Output:</strong>
