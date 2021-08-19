@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -75,20 +75,22 @@ function Login() {
             Check username/password, and try again later.
           </small>
         )}
-        <Link to="/"
+        <button
           type="submit"
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
           disabled={loading}
         >
           {loading ? "Loading..." : "Log In"}
-        </Link>
+        </button>
 
         <br />
         
-        <Link to="/password/Reset" className="btn btn-secondary mt-3">
+        {/* <Link to="/Reset" className="btn btn-secondary mt-3">
           Forgot Password?
-        </Link>
+        </Link> */}
+
+       <a href="/Reset" className="btn btn-secondary mt-3">Forgot Password?</a>
 
         {data && (
           <div className="mt-3">
