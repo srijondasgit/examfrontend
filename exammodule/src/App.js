@@ -2,8 +2,10 @@ import React from 'react';
 import Form from './components/Form';
 import Login from './components/Login';
 import Reset from './components/Reset';
-import AddTestHeader from './components/AddTestHeader';
-import AddQuestion from './components/AddQuestion';
+
+import Route from "./components/Route";
+import Header from "./components/Header";
+
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // const App = () => {
@@ -48,21 +50,29 @@ import AddQuestion from './components/AddQuestion';
 
 function App() {
   return (
-    <div className="App">
+    // <div className="App">
+    //   <Form />
+    //   <br />
+    //   <hr />
+    //   <Login />
+    //   <br />
+    //   <hr />
+    //   <Reset />
+    //   <br />
+    //   <hr />
+    // </div>
+    <div>
+    <Header />
+    <Route path="/">
       <Form />
-      <br />
-      <hr />
+    </Route>
+    <Route path="/user/authenticate">
       <Login />
-      <br />
-      <hr />
+    </Route>
+    <Route path="/user/resetPassword">
       <Reset />
-      <br />
-      <hr />
-      <AddTestHeader />
-      <br />
-      <hr />
-      <AddQuestion />
-    </div>
+    </Route>
+  </div>
   );
 }
 
