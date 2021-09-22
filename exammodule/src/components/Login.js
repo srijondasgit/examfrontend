@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 
 
-function Login() {
+
+ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,6 +16,7 @@ function Login() {
     setLoading(true);
     setIsError(false);
 
+
     const data = {
       userName: userName,
       password: password,
@@ -24,17 +25,19 @@ function Login() {
     axios
       .post("/user/authenticate", data)
       .then((res) => {
-        setData(res.data);
-        setUserName("");
-        setPassword("");
-
-        setLoading(false);
+        localStorage.setItem('token', res.data);
+        // setData(res.data);
+        // setUserName("");
+        // setPassword("");
+        // setLoading(false);
+        console.log(res.data)
       })
       .catch((err) => {
         setLoading(false);
         setIsError(true);
       });
   };
+
 
   return (
     <div className="container p-3">
@@ -80,6 +83,7 @@ function Login() {
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
           disabled={loading}
+
         >
           {loading ? "Loading..." : "Log In"}
         </button>
@@ -90,7 +94,7 @@ function Login() {
           Forgot Password?
         </Link> */}
 
-       <a href="/Reset" className="btn btn-secondary mt-3">Forgot Password?</a>
+       <a href="/user/resetPassword" className="btn btn-secondary mt-3">Forgot Password?</a>
 
         {data && (
           <div className="mt-3">
