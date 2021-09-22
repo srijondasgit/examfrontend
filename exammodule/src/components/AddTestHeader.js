@@ -21,14 +21,19 @@ function AddTestHeader() {
       className: className,
     };
 
-    const headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcmlqb25kYXNAZ21haWwuY29tIiwiZXhwIjoxNjI3MTM5MzQzLCJpYXQiOjE2MjcxMDMzNDN9.2EN5Azf_6T-yOdEFQt--csSOOxbUDlL2l25s1f_rEIU",
-      type: "text"
-    };
+    // const headers = {
+    //   "Content-Type": "application/json",
+    //   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcmlqb25kYXNAZ21haWwuY29tIiwiZXhwIjoxNjI3MTM5MzQzLCJpYXQiOjE2MjcxMDMzNDN9.2EN5Azf_6T-yOdEFQt--csSOOxbUDlL2l25s1f_rEIU",
+    //   type: "text"
+    // };
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }
+    }
 
     axios
-      .post("/teacher/addTestHeader", data, { headers })
+      .post("/teacher/addTestHeader", data, config)
       .then((res) => {
         setData(res.data);
         setSchoolName("");
@@ -113,3 +118,5 @@ function AddTestHeader() {
 }
 
 export default AddTestHeader;
+
+
