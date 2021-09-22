@@ -5,6 +5,7 @@ import Reset from './components/Reset';
 
 import Route from "./components/Route";
 import Header from "./components/Header";
+import AddTestHeader from './components/AddTestHeader';
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -71,6 +72,9 @@ function App() {
     </Route>
     <Route path="/user/resetPassword">
       <Reset />
+    </Route>
+    <Route path="/teacher/addTestHeader">
+      <AddTestHeader />
     </Route>
   </div>
   );
