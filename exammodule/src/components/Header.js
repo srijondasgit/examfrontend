@@ -10,6 +10,9 @@ const Header = () => {
       <Link href="/user/authenticate" className="item">
         Log In
       </Link>
+      <Link href="/teacher/addTestHeader" className="item">
+        Test Header
+      </Link>
     </div>
   );
 };
