@@ -1,54 +1,49 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function AddQuestion() {
-  const [index, setIndex] = useState("");
-  const [questionText, setQuestionText] = useState("");
+function AddTestHeader() {
+  const [testName, setTestName] = useState("");
+  const [schoolName, setSchoolName] = useState("");
 
-  const [score, setScore] = useState("");
+  const [className, setClassName] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
-
 
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
 
     const data = {
-      index: index,
-      questionText: questionText,
-      score: score,
+      testName: testName,
+      schoolName: schoolName,
+      className: className,
     };
 
     // const headers = {
     //   "Content-Type": "application/json",
-    //   Authorization:
-    //     `Bearer ${token}`,
-    //   type: "text",
+    //   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcmlqb25kYXNAZ21haWwuY29tIiwiZXhwIjoxNjI3MTM5MzQzLCJpYXQiOjE2MjcxMDMzNDN9.2EN5Azf_6T-yOdEFQt--csSOOxbUDlL2l25s1f_rEIU",
+    //   type: "text"
     // };
-
-     
-
     const config = {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     }
 
-    const id = localStorage.getItem('id')
-
     axios
-      .post(`/teacher/addQuestion/${id}`, data, config)
+      .post("/teacher/addTestHeader", data, config)
       .then((res) => {
+        localStorage.setItem('id', res.data.id);
         setData(res.data);
-        setQuestionText("");
-        setIndex("");
+        setSchoolName("");
+        setTestName("");
 
-        setScore("");
+        setClassName("");
 
         setLoading(false);
+        console.log(res.data)
       })
       .catch((err) => {
         setLoading(false);
@@ -61,41 +56,41 @@ function AddQuestion() {
       <h5 className="d-inline-block mb-3"> </h5>
       <div style={{ maxWidth: 350 }}>
         <div className="form-group">
-          <label htmlFor="index">Index of Question</label>
+          <label htmlFor="testName">Test Name</label>
           <input
             type="text"
             className="form-control"
-            id="index"
-            placeholder="Enter Index of Question"
-            value={index}
-            onChange={(e) => setIndex(e.target.value)}
+            id="testName"
+            placeholder="Enter Test Name"
+            value={testName}
+            onChange={(e) => setTestName(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="questionText" className="mt-2">
-            Question
+          <label htmlFor="schoolName" className="mt-2">
+            School Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="questionText"
-            placeholder="Question"
-            value={questionText}
-            onChange={(e) => setQuestionText(e.target.value)}
+            id="schoolName"
+            placeholder="Enter School Name"
+            value={schoolName}
+            onChange={(e) => setSchoolName(e.target.value)}
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="score" className="mt-2">
-            Score
+          <label htmlFor="className" className="mt-2">
+            Class Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="score"
-            placeholder="Score"
-            value={score}
-            onChange={(e) => setScore(e.target.value)}
+            id="className"
+            placeholder="Enter Class Name"
+            value={className}
+            onChange={(e) => setClassName(e.target.value)}
           />
         </div>
 
@@ -106,17 +101,16 @@ function AddQuestion() {
         )}
         <button
           type="submit"
-          className="btn btn-info mt-3 d-grid gap-2 col-12 mx-auto"
+          className="btn btn-secondary mt-3"
           onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? "Loading..." : "Add Question"}
+          {loading ? "Loading..." : "Create Test"}
         </button>
         {data && (
           <div className="mt-3">
             <strong>Output:</strong>
             <br />
-
             <pre>{JSON.stringify(data, null, 2)}</pre>
           </div>
         )}
@@ -125,5 +119,6 @@ function AddQuestion() {
   );
 }
 
-export default AddQuestion;
+export default AddTestHeader;
+
 
