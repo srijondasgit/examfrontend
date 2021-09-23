@@ -13,6 +13,9 @@ const Header = () => {
       <Link href="/teacher/addTestHeader" className="item">
         Test Header
       </Link>
+      <Link href="/teacher/addQuestion" className="item">
+        Add Question
+      </Link>
     </div>
   );
 };
