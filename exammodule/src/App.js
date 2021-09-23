@@ -6,6 +6,7 @@ import Reset from './components/Reset';
 import Route from "./components/Route";
 import Header from "./components/Header";
 import AddTestHeader from './components/AddTestHeader';
+import AddQuestion from './components/AddQuestion';
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -49,6 +50,8 @@ import AddTestHeader from './components/AddTestHeader';
 
 // export default App;
 
+const id = localStorage.getItem('id')
+
 function App() {
   return (
     // <div className="App">
@@ -75,6 +78,9 @@ function App() {
     </Route>
     <Route path="/teacher/addTestHeader">
       <AddTestHeader />
+    </Route>
+    <Route path="/teacher/addQuestion">
+      <AddQuestion />
     </Route>
   </div>
   );
