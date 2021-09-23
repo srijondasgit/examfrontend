@@ -1,45 +1,52 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function AddTestHeader() {
-  const [testName, setTestName] = useState("");
-  const [schoolName, setSchoolName] = useState("");
+function AddQuestion() {
+  const [index, setIndex] = useState("");
+  const [questionText, setQuestionText] = useState("");
 
-  const [className, setClassName] = useState("");
+  const [score, setScore] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
+
 
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
 
     const data = {
-      testName: testName,
-      schoolName: schoolName,
-      className: className,
+      index: index,
+      questionText: questionText,
+      score: score,
     };
 
     // const headers = {
     //   "Content-Type": "application/json",
-    //   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcmlqb25kYXNAZ21haWwuY29tIiwiZXhwIjoxNjI3MTM5MzQzLCJpYXQiOjE2MjcxMDMzNDN9.2EN5Azf_6T-yOdEFQt--csSOOxbUDlL2l25s1f_rEIU",
-    //   type: "text"
+    //   Authorization:
+    //     `Bearer ${token}`,
+    //   type: "text",
     // };
+
+     
+
     const config = {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     }
 
+    const id = localStorage.getItem('id')
+
     axios
-      .post("/teacher/addTestHeader", data, config)
+      .post(`/teacher/addQuestion/${id}`, data, config)
       .then((res) => {
         setData(res.data);
-        setSchoolName("");
-        setTestName("");
+        setQuestionText("");
+        setIndex("");
 
-        setClassName("");
+        setScore("");
 
         setLoading(false);
       })
@@ -54,41 +61,41 @@ function AddTestHeader() {
       <h5 className="d-inline-block mb-3"> </h5>
       <div style={{ maxWidth: 350 }}>
         <div className="form-group">
-          <label htmlFor="testName">Test Name</label>
+          <label htmlFor="index">Index of Question</label>
           <input
             type="text"
             className="form-control"
-            id="testName"
-            placeholder="Enter Test Name"
-            value={testName}
-            onChange={(e) => setTestName(e.target.value)}
+            id="index"
+            placeholder="Enter Index of Question"
+            value={index}
+            onChange={(e) => setIndex(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="schoolName" className="mt-2">
-            School Name
+          <label htmlFor="questionText" className="mt-2">
+            Question
           </label>
           <input
             type="text"
             className="form-control"
-            id="schoolName"
-            placeholder="Enter School Name"
-            value={schoolName}
-            onChange={(e) => setSchoolName(e.target.value)}
+            id="questionText"
+            placeholder="Question"
+            value={questionText}
+            onChange={(e) => setQuestionText(e.target.value)}
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="className" className="mt-2">
-            Class Name
+          <label htmlFor="score" className="mt-2">
+            Score
           </label>
           <input
             type="text"
             className="form-control"
-            id="className"
-            placeholder="Enter Class Name"
-            value={className}
-            onChange={(e) => setClassName(e.target.value)}
+            id="score"
+            placeholder="Score"
+            value={score}
+            onChange={(e) => setScore(e.target.value)}
           />
         </div>
 
@@ -99,16 +106,17 @@ function AddTestHeader() {
         )}
         <button
           type="submit"
-          className="btn btn-secondary mt-3"
+          className="btn btn-info mt-3 d-grid gap-2 col-12 mx-auto"
           onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? "Loading..." : "Create Test"}
+          {loading ? "Loading..." : "Add Question"}
         </button>
         {data && (
           <div className="mt-3">
             <strong>Output:</strong>
             <br />
+
             <pre>{JSON.stringify(data, null, 2)}</pre>
           </div>
         )}
@@ -117,6 +125,5 @@ function AddTestHeader() {
   );
 }
 
-export default AddTestHeader;
-
+export default AddQuestion;
 
