@@ -7,6 +7,7 @@ import Route from "./components/Route";
 import Header from "./components/Header";
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
+import ShowTestList from './components/ShowTestList';
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -81,6 +82,9 @@ function App() {
     </Route>
     <Route path="/teacher/addQuestion">
       <AddQuestion />
+    </Route>
+    <Route path="/user/allTests">
+      <ShowTestList />
     </Route>
   </div>
   );
