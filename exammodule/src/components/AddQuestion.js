@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 function AddQuestion() {
   const [index, setIndex] = useState("");
   const [questionText, setQuestionText] = useState("");
@@ -11,10 +12,11 @@ function AddQuestion() {
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
 
-
+   
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
+    
 
     const data = {
       index: index,
@@ -22,15 +24,7 @@ function AddQuestion() {
       score: score,
     };
 
-    // const headers = {
-    //   "Content-Type": "application/json",
-    //   Authorization:
-    //     `Bearer ${token}`,
-    //   type: "text",
-    // };
-
-     
-
+   
     const config = {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -38,6 +32,7 @@ function AddQuestion() {
     }
 
     const id = localStorage.getItem('id')
+
 
     axios
       .post(`/teacher/addQuestion/${id}`, data, config)
@@ -49,6 +44,7 @@ function AddQuestion() {
         setScore("");
 
         setLoading(false);
+        
       })
       .catch((err) => {
         setLoading(false);
@@ -121,6 +117,14 @@ function AddQuestion() {
           </div>
         )}
       </div>
+      <div>
+        <ul>
+          <li>{index}</li>
+          <li>{questionText}</li>
+          <li>{score}</li>
+        </ul>
+        
+        </div>
     </div>
   );
 }
