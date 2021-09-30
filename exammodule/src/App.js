@@ -8,15 +8,17 @@ import Header from "./components/Header";
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
 import ShowTestList from './components/ShowTestList';
+import GetTestIds from './components/GetTestIds';
+
 
 
 function App() {
   return (
     <div>
     <Header />
-    <Route path="/">
+    {/* <Route path="/">
       <Form />
-    </Route>
+    </Route> */}
     <Route path="/user/authenticate">
       <Login />
     </Route>
@@ -30,7 +32,7 @@ function App() {
       <AddQuestion />
     </Route>
     <Route path="/user/allTests">
-      <ShowTestList />
+      <GetTestIds />
     </Route>
   </div>
   );
