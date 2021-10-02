@@ -1,45 +1,39 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect} from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
-export default class GetTestIds extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            Users: []
-        };
+ function GetTestIds() {
+    const [ids, setIds] = useState([]);
+    const getUsersData = () => {
+        axios.get('/user/allTests')
+        .then((res) => {
+            const ids = res.data;
+            setIds(ids);
+            console.log(ids);
+        }).catch((err) => {
+            console.log(err)
+        })
     }
-    getUsersData() {
-        axios
-            .get("/user/allTestsIds", {})
-            .then(res => {
-                const data = res.data
-                console.log(data)
-                const users = data.map(u =>
-                    <div>
-                    <p>{u}</p>
-
-                    </div>
-                    )
-
-                    this.setState({
-                        users
-                    })
-
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-    }
-    componentDidMount(){
-        this.getUsersData()
-    }
-    render() {
-
-        return (
-            <div>
-                {this.state.users}
-            </div>
-        )
-    }
+    useEffect(() => {
+        getUsersData();  
+       })
+    return (
+        <div>
+            <ol>
+                {ids.map((id) => (
+                     <div key={id.id}>
+                        <Link to={`/user/testId/${id.id}/getTest`}>
+                        {id.id}
+                        </Link>
+                   </div>
+                ))}
+            </ol>
+        </div>
+    )
 }
+export default GetTestIds;
+
+
+
+// /user/testId/_id/getTest
+
