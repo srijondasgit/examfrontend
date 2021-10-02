@@ -3,37 +3,32 @@ import Form from './components/Form';
 import Login from './components/Login';
 import Reset from './components/Reset';
 
-import Route from "./components/Route";
 import Header from "./components/Header";
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
-import ShowTestList from './components/ShowTestList';
 import GetTestIds from './components/GetTestIds';
+import TestDetail from './components/TestDetail';
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
 function App() {
   return (
     <div>
+    
+    <Router>
     <Header />
-    {/* <Route path="/">
-      <Form />
-    </Route> */}
-    <Route path="/user/authenticate">
-      <Login />
-    </Route>
-    <Route path="/user/resetPassword">
-      <Reset />
-    </Route>
-    <Route path="/teacher/addTestHeader">
-      <AddTestHeader />
-    </Route>
-    <Route path="/teacher/addQuestion">
-      <AddQuestion />
-    </Route>
-    <Route path="/user/allTests">
-      <GetTestIds />
-    </Route>
+      <Switch>
+      <Route exact path="/" component={Form}/>
+      <Route path="/user/authenticate" component={Login}/>
+      <Route path="/user/resetPassword" component={Reset}/>
+      <Route path="/teacher/addTestHeader" component={AddTestHeader}/>
+        <Route path="/teacher/addQuestion" component={AddQuestion}/>
+        <Route path="/user/allTests" component={GetTestIds} />
+        <Route path="/user/testId/:id/getTest" component={TestDetail} />
+      </Switch>
+    </Router>
+    
   </div>
   );
 }
