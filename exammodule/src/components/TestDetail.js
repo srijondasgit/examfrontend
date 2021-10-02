@@ -24,7 +24,7 @@ const TestDetail = () => {
       <p>School Name - {test.schoolName}</p>
       <p>Class Name - {test.className}</p>
       <br />
-      <button onClick={() => push("/")}>Go back</button>
+      <button onClick={() => push("/user/allTests")}>Go back</button>
     </article>
   );
 };
