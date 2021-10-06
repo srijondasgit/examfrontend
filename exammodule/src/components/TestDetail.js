@@ -23,6 +23,9 @@ const TestDetail = () => {
       <p>Test Name - {test.testName}</p>
       <p>School Name - {test.schoolName}</p>
       <p>Class Name - {test.className}</p>
+      <p>Index - {JSON.stringify(test.questions[0].index)}</p>
+      <p>Question - {JSON.stringify(test.questions[0].questionText)}</p>
+      <p>Score - {JSON.stringify(test.questions[0].score)}</p>
       <br />
       <button onClick={() => push("/user/allTests")}>Go back</button>
     </article>
