@@ -23,7 +23,7 @@ function App() {
       <Route path="/user/authenticate" component={Login}/>
       <Route path="/user/resetPassword" component={Reset}/>
       <Route path="/teacher/addTestHeader" component={AddTestHeader}/>
-        <Route path="/teacher/addQuestion" component={AddQuestion}/>
+        <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
         <Route path="/user/allTests" component={GetTestIds} />
         <Route path="/user/testId/:id/getTest" component={TestDetail} />
       </Switch>
