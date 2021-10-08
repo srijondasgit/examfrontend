@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import ModalAddQuestion from "./ModalAddQuestion";
+import { Link } from "react-router-dom";
 
 const TestDetail = () => {
   const { id } = useParams();
@@ -29,11 +30,17 @@ const TestDetail = () => {
       <p>School Name - {test.schoolName}</p>
       <p>Class Name - {test.className}</p>
       <br />
-      <div><ModalAddQuestion /></div>
+      <div>
+        <Link to={`/teacher/testId/${id}/addQuestion`}>
+          <ModalAddQuestion />
+        </Link>
+      </div>
       <br />
-      <button onClick={() => push("/user/allTests")}>Go back</button>
+        <div><Button onClick={() => push("/user/allTests")}>Go back</Button></div>
       <hr />
-      <div><h1>Questions</h1></div>
+      <div>
+        <h1>Questions</h1>
+      </div>
       {/* Div below returns all the questions */}
       <div>
         {questions.map(function (q, idx) {
