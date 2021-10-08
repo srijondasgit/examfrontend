@@ -13,9 +13,9 @@ const Header = () => {
       <Link to="/teacher/addTestHeader" className="item">
         Test Header
       </Link>
-      <Link to="/teacher/addQuestion" className="item">
+      {/* <Link to={`/teacher/testId/${id}/addQuestion`} className="item">
         Add Question
-      </Link>
+      </Link> */}
       <Link to="/user/allTests" className="item">
         Show all test ids
       </Link>
