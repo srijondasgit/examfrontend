@@ -7,6 +7,9 @@ const ModalAddQuestion = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+   function refreshPage() {
+    window.location.reload(false);
+  }
 
     return(
         <>
@@ -23,8 +26,8 @@ const ModalAddQuestion = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
+            <Button variant="primary" onClick={handleClose, refreshPage}>
+              See your question
             </Button>
           </Modal.Footer>
         </Modal>
