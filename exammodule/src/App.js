@@ -10,6 +10,7 @@ import GetTestIds from './components/GetTestIds';
 import TestDetail from './components/TestDetail';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import QuestionRemoved from './components/QuestionRemoved';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
         <Route path="/user/allTests" component={GetTestIds} />
         <Route path="/user/testId/:id/getTest" component={TestDetail} />
+        <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
       </Switch>
     </Router>
     
