@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 
 
 
@@ -49,6 +49,8 @@ function AddQuestion() {
         setIsError(true);
       });
   };
+
+ 
 
   return (
     <div className="container p-3">
@@ -115,7 +117,7 @@ function AddQuestion() {
           </div>
         )}
         <br />
-        <div><Button onClick={() => push(`/user/testId/${id}/getTest`)}>Go back</Button></div>
+        {/* <div><Button onClick={() => push(`/user/testId/${id}/getTest`)}>Go back</Button></div> */}
       </div>
     </div>
   );
