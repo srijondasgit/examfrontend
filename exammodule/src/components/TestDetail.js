@@ -4,9 +4,11 @@ import axios from "axios";
 import { Table, Button } from "react-bootstrap";
 import ModalAddQuestion from "./ModalAddQuestion";
 import { Link } from "react-router-dom";
+import QuestionRemoved from "./QuestionRemoved";
 
 const TestDetail = () => {
-  const { id } = useParams();
+  const { id, qid } = useParams();
+
   const { push } = useHistory();
   const [test, setTest] = useState({});
   // within useState square brackets must be used to recognize questions as an array
@@ -23,6 +25,17 @@ const TestDetail = () => {
     };
     fetch();
   }, []);
+
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
+
   return (
     <article>
       <h1>ID - {test.id}</h1>
@@ -31,12 +44,14 @@ const TestDetail = () => {
       <p>Class Name - {test.className}</p>
       <br />
       <div>
-        <Link to={`/teacher/testId/${id}/addQuestion`}>
+        <Link>
           <ModalAddQuestion />
         </Link>
       </div>
       <br />
-        <div><Button onClick={() => push("/user/allTests")}>Go back</Button></div>
+      <div>
+        <Button onClick={() => push("/user/allTests")}>Go back</Button>
+      </div>
       <hr />
       <div>
         <h1>Questions</h1>
@@ -51,15 +66,32 @@ const TestDetail = () => {
                   <thead>
                     <tr>
                       <th>Index</th>
+                      <th hidden>Question Id</th>
                       <th>Question Text</th>
                       <th>Score</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>{q.index}</td>
+                      <th hidden>{q.id}</th>
                       <td>{q.questionText}</td>
                       <td>{q.score}</td>
+                      <td>
+                        <Link
+
+                          onClick={() => {
+                            axios.delete(
+                              `/teacher/testId/${id}/questionId/${q.id}`,
+                              config
+                            );
+                          }}
+                          // to={`/teacher/testId/${id}/questionId/${qid}`}
+                        >
+                         <QuestionRemoved id={id} qid={q.id} config={config} />
+                        </Link>
+                      </td>
                     </tr>
                   </tbody>
                 </Table>
