@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom';
     }
     useEffect(() => {
         getUsersData();  
-       })
+       },[])
     return (
         <div>
             <ol>
