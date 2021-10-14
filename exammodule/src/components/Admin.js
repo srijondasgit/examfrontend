@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Admin = () => {
@@ -11,25 +11,37 @@ const Admin = () => {
     },
   };
 
-  axios
-    .get("/profile/getProfileName", config)
-    .then((res) => {
-      const profileName = res.data;
-      setProfileName(profileName);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-    axios
-    .get("/profile/getProfileRole", config)
-    .then((res) => {
-      const profileRole = res.data;
+  useEffect(async()=>{
+      const response = await axios.get('/profile/getProfileRole', config)
+      const profileRole = response.data;
       setProfileRole(profileRole);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  },[])
+
+  useEffect(async()=>{
+    const res = await axios.get('/profile/getProfileName', config)
+    const profileName = res.data;
+    setProfileName(profileName);
+},[])
+
+  // axios
+  //   .get("/profile/getProfileName", config)
+  //   .then((res) => {
+  //     const profileName = res.data;
+  //     setProfileName(profileName);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+
+  //   axios
+  //   .get("/profile/getProfileRole", config)
+  //   .then((res) => {
+  //     const profileRole = res.data;
+  //     setProfileRole(profileRole);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 
   return (
     <div>
