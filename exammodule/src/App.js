@@ -11,7 +11,7 @@ import TestDetail from './components/TestDetail';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import QuestionRemoved from './components/QuestionRemoved';
-
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
         <Route path="/user/allTests" component={GetTestIds} />
         <Route path="/user/testId/:id/getTest" component={TestDetail} />
         <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
+        <Route path="/profile/getProfileName" component={Admin} />
       </Switch>
     </Router>
     
