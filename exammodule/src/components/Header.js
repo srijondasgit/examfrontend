@@ -19,7 +19,9 @@ const Header = () => {
       <Link to="/user/allTests" className="item">
         Show all test ids
       </Link>
-     
+      <Link to="/profile/getProfileName" className="item">
+        My detail
+      </Link>
     </div>
   );
 };
