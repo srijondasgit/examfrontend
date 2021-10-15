@@ -4,6 +4,7 @@ import axios from "axios";
 const Admin = () => {
   const [profileName, setProfileName] = useState("");
   const [profileRole, setProfileRole] = useState([]);
+  const [ownersTests, setOwnersTest] = useState([]);
 
   const config = {
     headers: {
@@ -11,17 +12,23 @@ const Admin = () => {
     },
   };
 
-  useEffect(async()=>{
-      const response = await axios.get('/profile/getProfileRole', config)
-      const profileRole = response.data;
-      setProfileRole(profileRole);
-  },[])
+  useEffect(async () => {
+    const response = await axios.get("/profile/getProfileRole", config);
+    const profileRole = response.data;
+    setProfileRole(profileRole);
+  }, []);
 
-  useEffect(async()=>{
-    const res = await axios.get('/profile/getProfileName', config)
+  useEffect(async () => {
+    const res = await axios.get("/profile/getProfileName", config);
     const profileName = res.data;
     setProfileName(profileName);
-},[])
+  }, []);
+
+  useEffect(async () => {
+    const re = await axios.get("/teacher/getOwnersTestsList", config);
+    const ownersTests = re.data;
+    setOwnersTest(ownersTests);
+  }, []);
 
   // axios
   //   .get("/profile/getProfileName", config)
@@ -46,13 +53,29 @@ const Admin = () => {
   return (
     <div>
       <h1>My name is - {profileName}</h1>
-      {profileRole.map((u)=>{
-        return(
-          <div><h1>My role is - {u.authority}</h1></div>
-        )
+      {profileRole.map((u) => {
+        return (
+          <div key={u.authority}>
+            <h1>My role is - {u.authority}</h1>
+          </div>
+        );
       })}
+      <div>
+        <ol>
+          <div>
+            <h1>My Test List:-</h1>
+          </div>
+          {ownersTests.map((q) => {
+            return (
+              <div key={q}>
+                <li>{q}</li>
+              </div>
+            );
+          })}
+        </ol>
+      </div>
     </div>
   );
-}
+};
 
 export default Admin;
