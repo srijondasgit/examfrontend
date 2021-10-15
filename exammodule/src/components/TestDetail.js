@@ -42,11 +42,13 @@ const TestDetail = () => {
       <p>Test Name - {test.testName}</p>
       <p>School Name - {test.schoolName}</p>
       <p>Class Name - {test.className}</p>
+      <p><Link to={`/teacher/testId/${id}/getSubmissions`}>Submissions</Link></p>
       <br />
       <div>
         <Link>
           <ModalAddQuestion />
         </Link>
+        
       </div>
       <br />
       <div>
@@ -59,6 +61,7 @@ const TestDetail = () => {
       {/* Div below returns all the questions */}
       <div>
         {questions.map(function (q, idx) {
+          
           return (
             <div key={idx}>
               <div>
@@ -70,6 +73,7 @@ const TestDetail = () => {
                       <th>Question Text</th>
                       <th>Score</th>
                       <th>Delete</th>
+                      {/* <th>Submissions</th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -91,6 +95,20 @@ const TestDetail = () => {
                         >
                          <QuestionRemoved id={id} qid={q.id} config={config} />
                         </Link>
+                      </td>
+                      <td>
+                        {/* <Link
+
+                          onClick={() => {
+                            axios.get(
+                              `/teacher/testId/${id}/getSubmissions`,
+                              config
+                            );
+                          }}
+                          to={`/teacher/testId/${id}/getSubmissions`}
+                        >
+                         getSubmissions
+                        </Link> */}
                       </td>
                     </tr>
                   </tbody>
