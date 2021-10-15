@@ -12,13 +12,15 @@ import TestDetail from './components/TestDetail';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import QuestionRemoved from './components/QuestionRemoved';
 import Admin from "./components/Admin";
+import SubmissionsTeacher from './components/SubmissionsTeacher';
+
 
 function App() {
   return (
     <div>
     
     <Router>
-    <Header />
+     <Header />
       <Switch>
       <Route exact path="/" component={Form}/>
       <Route path="/user/authenticate" component={Login}/>
@@ -29,6 +31,7 @@ function App() {
         <Route path="/user/testId/:id/getTest" component={TestDetail} />
         <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
         <Route path="/profile/getProfileName" component={Admin} />
+        <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
       </Switch>
     </Router>
     
