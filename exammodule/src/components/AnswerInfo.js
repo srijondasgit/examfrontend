@@ -5,7 +5,8 @@ import { useParams, useHistory } from "react-router-dom";
 function AnswerInfo() {
   const { id, uid } = useParams();
 
-  const [details, setDetails] = useState([]);
+  //const [details, setDetails] = useState({});
+  const [answers, setAnswers] = useState([]);
 
   const config = {
     headers: {
@@ -21,7 +22,8 @@ function AnswerInfo() {
       )
       .then((res) => {
         const details = res.data;
-        setDetails(details);
+       // setDetails(details);
+        setAnswers(details.answers);
         console.log(details);
       })
       .catch((err) => {
@@ -35,13 +37,11 @@ function AnswerInfo() {
   return (
     <div>
       <ol>
-        {details.map((t) => {
-          return (
-            <div>
-              <h1>{t.answers[0].answerText}</h1>
-            </div>
-          );
-        })}
+          {answers.map((answer) => (
+              <div>
+                <h1>Answer Provided - {answer.answerText}</h1>
+              </div>
+          ))}
       </ol>
     </div>
   );
