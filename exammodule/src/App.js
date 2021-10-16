@@ -13,12 +13,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import QuestionRemoved from './components/QuestionRemoved';
 import Admin from "./components/Admin";
 import SubmissionsTeacher from './components/SubmissionsTeacher';
+import AnswerInfo from './components/AnswerInfo';
 
 
 function App() {
+  
   return (
     <div>
-    
     <Router>
      <Header />
       <Switch>
@@ -26,12 +27,13 @@ function App() {
       <Route path="/user/authenticate" component={Login}/>
       <Route path="/user/resetPassword" component={Reset}/>
       <Route path="/teacher/addTestHeader" component={AddTestHeader}/>
-        <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
-        <Route path="/user/allTests" component={GetTestIds} />
-        <Route path="/user/testId/:id/getTest" component={TestDetail} />
-        <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
-        <Route path="/profile/getProfileName" component={Admin} />
-        <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
+      <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
+      <Route path="/user/allTests" component={GetTestIds} />
+      <Route path="/user/testId/:id/getTest" component={TestDetail} />
+      <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
+      <Route path="/profile/getProfileName" component={Admin} />
+      <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
+      <Route path="/teacher/testId/:id/submissionId/:uid/getSubmissionDetails" component={AnswerInfo} />
       </Switch>
     </Router>
     
