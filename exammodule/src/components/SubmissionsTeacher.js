@@ -2,10 +2,13 @@ import React,{useState,useEffect} from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import AnswerInfo from "./AnswerInfo";
 
 
 function SubmissionsTeacher() {
-    const { id } = useParams();
+   
+    const { id, uid } = useParams();
 
     const [submissions, setSubmissions] = useState([]);
 
@@ -37,7 +40,7 @@ function SubmissionsTeacher() {
                               </thead>
                               <tbody>
                                 <tr>
-                                  <td>{u.id}</td>
+                                  <td><Link to={`/teacher/testId/${id}/submissionId/${u.id}/getSubmissionDetails`}>{u.id}</Link></td>
                                   <td>{u.studentName}</td>
                                 </tr>
                               </tbody>
