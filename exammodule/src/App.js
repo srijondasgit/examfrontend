@@ -14,6 +14,8 @@ import QuestionRemoved from './components/QuestionRemoved';
 import Admin from "./components/Admin";
 import SubmissionsTeacher from './components/SubmissionsTeacher';
 import AnswerInfo from './components/AnswerInfo';
+import UpdateSubmissionHeader from './components/UpdateSubmissionHeader';
+import UpsertAnswers from './components/UpsertAnswers';
 
 
 function App() {
@@ -34,6 +36,12 @@ function App() {
       <Route path="/profile/getProfileName" component={Admin} />
       <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
       <Route path="/teacher/testId/:id/submissionId/:uid/getSubmissionDetails" component={AnswerInfo} />
+
+      <Route path="/student/testId/:id/insertUpdateSubmissionHeader" component={UpdateSubmissionHeader} />
+      <Route path="/student/testId/:id/UpsertAnswers" component={UpsertAnswers} />
+
+
+
       </Switch>
     </Router>
     
