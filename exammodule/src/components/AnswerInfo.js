@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import {Link} from "react-router-dom";
 import ModalPoints from "./ModalPoints";
+import {Button} from "react-bootstrap";
 
 function AnswerInfo() {
   const { id, uid, handle } = useParams();
@@ -36,6 +37,16 @@ function AnswerInfo() {
     getAnswersData();
   }, []);
 
+  const data = {};
+
+  const sendNotification = () => {
+    axios.post(
+      `/teacher/testId/${id}/submissionId/${uid}/updateTotalAndEmail`,
+      config,
+      data
+    );
+  };
+
   return (
     <div>
       <ol>
@@ -45,7 +56,8 @@ function AnswerInfo() {
               <h1>AnswerID - {answer.id}</h1>
               <h1>Answer Provided - {answer.answerText}</h1>
               <h1>Answer Index - {answer.index}</h1>
-              <h1><Link><ModalPoints aid={answer.id} id={id} uid={uid}/> - {answer.pointScored}</Link></h1>
+              <h1><Link><ModalPoints aid={answer.id} id={id} uid={uid} /> - {answer.pointScored}</Link></h1>
+              <Button onClick={sendNotification}>Send Notification</Button>
             </li>
           </div>
         ))}
