@@ -7,7 +7,9 @@ import Header from "./components/Header";
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
 import GetTestIds from './components/GetTestIds';
+import GetStudentTestIds from './components/GetStudentTestIds';
 import TestDetail from './components/TestDetail';
+import StudentTestDetail from './components/StudentTestDetail';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import QuestionRemoved from './components/QuestionRemoved';
@@ -32,6 +34,7 @@ function App() {
       <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
       <Route path="/user/allTests" component={GetTestIds} />
       <Route path="/user/testId/:id/getTest" component={TestDetail} />
+      <Route path="/user/testId/:id/getStudentTest" component={StudentTestDetail} />
       <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
       <Route path="/profile/getProfileName" component={Admin} />
       <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
@@ -39,7 +42,7 @@ function App() {
 
       <Route path="/student/testId/:id/insertUpdateSubmissionHeader" component={UpdateSubmissionHeader} />
       <Route path="/student/testId/:id/UpsertAnswers" component={UpsertAnswers} />
-
+      <Route path="/student/allTests" component={GetStudentTestIds} />
 
 
       </Switch>

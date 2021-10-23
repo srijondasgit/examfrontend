@@ -22,6 +22,9 @@ const Header = () => {
       <Link to="/profile/getProfileName" className="item">
         My detail
       </Link>
+      <Link to="/student/allTests" className="item">
+        Student all tests
+      </Link>
     </div>
   );
 };
