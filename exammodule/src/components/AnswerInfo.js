@@ -10,6 +10,8 @@ function AnswerInfo() {
 
   //const [details, setDetails] = useState({});
   const [answers, setAnswers] = useState([]);
+  const [notification, setNotification] = useState("");
+  const [data, setData] = useState(null);
 
   const config = {
     headers: {
@@ -37,14 +39,20 @@ function AnswerInfo() {
     getAnswersData();
   }, []);
 
-  const data = {};
+  const thisData = {
+    notification: notification
+  };
 
-  const sendNotification = () => {
-    axios.post(
-      `/teacher/testId/${id}/submissionId/${uid}/updateTotalAndEmail`,
-      config,
-      data
-    );
+  const sendNotification = async () => {
+    axios
+      .post(`/teacher/testId/${id}/submissionId/${uid}/updateTotalAndEmail`,  thisData, config)
+      .then((res) => {
+        console.log(res)
+        setNotification("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -52,16 +60,18 @@ function AnswerInfo() {
       <ol>
         {answers.map((answer) => (
           <div>
+             
             <li>
               <h1>AnswerID - {answer.id}</h1>
               <h1>Answer Provided - {answer.answerText}</h1>
               <h1>Answer Index - {answer.index}</h1>
               <h1><Link><ModalPoints aid={answer.id} id={id} uid={uid} /> - {answer.pointScored}</Link></h1>
-              <Button onClick={sendNotification}>Send Notification</Button>
+             
             </li>
           </div>
         ))}
       </ol>
+      <Button onClick={sendNotification}>Send Notification</Button>
     </div>
   );
 }
