@@ -54,11 +54,26 @@ const Admin = () => {
     <div>
       <h1>My name is - {profileName}</h1>
       {profileRole.map((u) => {
+        if(u.authority=="TEACHER"){
         return (
           <div key={u.authority}>
             <h1>My role is - {u.authority}</h1>
           </div>
         );
+        } else if (u.authority=="STUDENT"){
+          return (
+            <div key={u.authority}>
+              <h1>This is a different return block for role - {u.authority}</h1>
+            </div>
+          );
+        } else {
+          return (
+            <div key={u.authority}>
+              <h1>Something went wrong here - {u.authority}</h1>
+            </div>
+          );
+        }
+
       })}
       <div>
         <ol>
