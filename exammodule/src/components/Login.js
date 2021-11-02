@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
+import Form from "./Form";
 
+ const Login = ({value}) => {
+  const { push } = useHistory();
 
-
- const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +17,6 @@ import axios from "axios";
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
-
 
     const data = {
       userName: userName,
@@ -29,8 +30,8 @@ import axios from "axios";
         // setData(res.data);
         // setUserName("");
         // setPassword("");
-        // setLoading(false);
-        console.log(res.data)
+        setLoading(false);
+        
       })
       .catch((err) => {
         setLoading(false);
@@ -38,7 +39,12 @@ import axios from "axios";
       });
   };
 
-
+   const timer = ()=>{
+    setTimeout(() => {
+      {handleSubmit()}
+      push('/teacher/addTestHeader')
+    }, 2000);
+   }
   return (
     <div className="container p-3">
       <h5 className="d-inline-block mb-3"> </h5>
@@ -81,7 +87,7 @@ import axios from "axios";
         <button
           type="submit"
           className="btn btn-primary mt-3"
-          onClick={handleSubmit}
+          onClick={ timer}
           disabled={loading}
 
         >
