@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Reset from './components/Reset';
 
 import Header from "./components/Header";
+import Footer from './components/Footer';
 import AddTestHeader from './components/AddTestHeader';
 import AddQuestion from './components/AddQuestion';
 import GetTestIds from './components/GetTestIds';
@@ -46,6 +47,7 @@ function App() {
 
 
       </Switch>
+      <Footer />
     </Router>
     
   </div>
