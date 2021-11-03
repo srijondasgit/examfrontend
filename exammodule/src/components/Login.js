@@ -50,14 +50,25 @@ import {useHistory} from "react-router-dom";
         setLoading(false);
         setIsError(true);
       });
+
+      // {profileRole.map((u)=>{
+      //   console.log(u.authority)
+      //   if(u.authority == 'TEACHER') {
+      //       push('/teacher/addTestHeader')
+      //   } else if (u.authority == 'STUDENT') {
+      //       push('/user/allTests')
+      //   } else {
+            
+      //   }
+      // })}
   };
 
-  //  const timer = ()=>{
-  //   setTimeout(() => {
-  //     {handleSubmit()}
-  //     push('/teacher/addTestHeader')
-  //   }, 2000);
-  //  }
+   const timer = ()=>{
+    setTimeout(() => {
+      {handleSubmit()}
+    }, 2000);
+   }
+
   return (
     <div className="container p-3">
       <h5 className="d-inline-block mb-3"> </h5>
@@ -100,26 +111,26 @@ import {useHistory} from "react-router-dom";
         <button
           type="submit"
           className="btn btn-primary mt-3"
-          // onClick={timer}
+          onClick={timer}
           disabled={loading}
-          onClick={()=> profileRole.map((u)=>{
-            if(u.authority == 'TEACHER'){
-              return setTimeout(() => {
-                  {handleSubmit()}
-                  push('/teacher/addTestHeader')
-                }, 2000);
+         // onClick={()=> profileRole.map((u)=>{
+         //   if(u.authority == 'TEACHER'){
+         //     return setTimeout(() => {
+         //         {handleSubmit()}
+          //         push('/teacher/addTestHeader')
+          //       }, 2000);
                
-              // return push('/teacher/addTestHeader')
-            }else if(u.authority=='STUDENT'){
-              return setTimeout(() => {
-                {handleSubmit()}
-                push('/user/alltests')
-              }, 2000);
-              // return push('/user/allTests')
-            }else{
-              return 'Something went wrong!'
-            }
-          })}
+          //     // return push('/teacher/addTestHeader')
+          //   }else if(u.authority=='STUDENT'){
+          //     return setTimeout(() => {
+          //       {handleSubmit()}
+          //       push('/user/alltests')
+          //     }, 2000);
+          //     // return push('/user/allTests')
+          //   }else{
+          //     return 'Something went wrong!'
+          //   }
+          // })}
         
         >
           {loading ? "Loading..." : "Log In"}
