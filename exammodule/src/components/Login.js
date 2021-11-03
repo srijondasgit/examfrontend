@@ -12,11 +12,11 @@ import {useHistory} from "react-router-dom";
     },
   };
 
-  useEffect(async()=>{
-    const response = await axios.get("/profile/getProfileRole", config);
-    const profileRole = response.data;
-    setProfileRole(profileRole);
-  },[])
+  // useEffect(async()=>{
+  //   const response = await axios.get("/profile/getProfileRole", config);
+  //   const profileRole = response.data;
+  //   setProfileRole(profileRole);
+  // },[])
 
 
   const [userName, setUserName] = useState("");
@@ -38,12 +38,27 @@ import {useHistory} from "react-router-dom";
 
     axios
       .post("/user/authenticate", data)
-      .then((res) => {
-        localStorage.setItem('token', res.data);
+      .then(async(res) => {
+        await localStorage.setItem('token', res.data);
         // setData(res.data);
         // setUserName("");
         // setPassword("");
         setLoading(false);
+        
+        const response = await axios.get("/profile/getProfileRole", config);
+        //const profileRole = await response.data;
+        await setProfileRole(response.data);
+        
+        await profileRole.map((u)=>{
+          console.log(u.authority)
+          if(u.authority == 'TEACHER') {
+              push('/teacher/addTestHeader')
+          } else if (u.authority == 'STUDENT') {
+              push('/user/allTests')
+          } else {
+              
+          }
+        })
         
       })
       .catch((err) => {
@@ -51,16 +66,7 @@ import {useHistory} from "react-router-dom";
         setIsError(true);
       });
 
-      // {profileRole.map((u)=>{
-      //   console.log(u.authority)
-      //   if(u.authority == 'TEACHER') {
-      //       push('/teacher/addTestHeader')
-      //   } else if (u.authority == 'STUDENT') {
-      //       push('/user/allTests')
-      //   } else {
-            
-      //   }
-      // })}
+
   };
 
    const timer = ()=>{
