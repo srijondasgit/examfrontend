@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
-import Form from "./Form";
 
- const Login = ({value}) => {
+ const Login = () => {
+   const [profileRole, setProfileRole] = useState([]);
   const { push } = useHistory();
+
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+
+  useEffect(async()=>{
+    const response = await axios.get("/profile/getProfileRole", config);
+    const profileRole = response.data;
+    setProfileRole(profileRole);
+  },[])
+
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -39,12 +52,12 @@ import Form from "./Form";
       });
   };
 
-   const timer = ()=>{
-    setTimeout(() => {
-      {handleSubmit()}
-      push('/teacher/addTestHeader')
-    }, 2000);
-   }
+  //  const timer = ()=>{
+  //   setTimeout(() => {
+  //     {handleSubmit()}
+  //     push('/teacher/addTestHeader')
+  //   }, 2000);
+  //  }
   return (
     <div className="container p-3">
       <h5 className="d-inline-block mb-3"> </h5>
@@ -87,9 +100,27 @@ import Form from "./Form";
         <button
           type="submit"
           className="btn btn-primary mt-3"
-          onClick={ timer}
+          // onClick={timer}
           disabled={loading}
-
+          onClick={()=> profileRole.map((u)=>{
+            if(u.authority == 'TEACHER'){
+              return setTimeout(() => {
+                  {handleSubmit()}
+                  push('/teacher/addTestHeader')
+                }, 2000);
+               
+              // return push('/teacher/addTestHeader')
+            }else if(u.authority=='STUDENT'){
+              return setTimeout(() => {
+                {handleSubmit()}
+                push('/user/alltests')
+              }, 2000);
+              // return push('/user/allTests')
+            }else{
+              return 'Something went wrong!'
+            }
+          })}
+        
         >
           {loading ? "Loading..." : "Log In"}
         </button>
