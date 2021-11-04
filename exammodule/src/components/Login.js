@@ -12,13 +12,6 @@ import {useHistory} from "react-router-dom";
     },
   };
 
-  // useEffect(async()=>{
-  //   const response = await axios.get("/profile/getProfileRole", config);
-  //   const profileRole = response.data;
-  //   setProfileRole(profileRole);
-  // },[])
-
-
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +20,7 @@ import {useHistory} from "react-router-dom";
 
   const [data, setData] = useState(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     setLoading(true);
     setIsError(false);
 
@@ -36,32 +29,47 @@ import {useHistory} from "react-router-dom";
       password: password,
     };
 
-    axios
+    await axios
       .post("/user/authenticate", data)
       .then(async(res) => {
         await localStorage.setItem('token', res.data);
+        console.log("value in local storage : "+localStorage.getItem("token"))
+        console.log("another time value in local storage : "+localStorage.getItem("token"))
         // setData(res.data);
         // setUserName("");
         // setPassword("");
         setLoading(false);
-        
-        const response = await axios.get("/profile/getProfileRole", config);
-        //const profileRole = await response.data;
-        await setProfileRole(response.data);
-        
-        await profileRole.map((u)=>{
-          console.log(u.authority)
-          if(u.authority == 'TEACHER') {
-              push('/teacher/addTestHeader')
-          } else if (u.authority == 'STUDENT') {
-              push('/user/allTests')
-          } else {
-              
-          }
-        })
-        
       })
       .catch((err) => {
+        setLoading(false);
+        setIsError(true);
+      });
+
+      const configNew = {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      };
+
+    await axios
+          .get("/profile/getProfileRole", configNew)
+          .then(async(response) => {
+          const profileRole = await response.data;
+          //await setProfileRole(response.data);
+        console.log(response.data)
+
+    await profileRole.map((u)=>{
+        console.log(u.authority)
+        if(u.authority == 'TEACHER') {
+            push('/teacher/addTestHeader')
+        } else if (u.authority == 'STUDENT') {
+            push('/user/allTests')
+        } else {
+            
+        }
+      })
+
+      }).catch((err) => {
         setLoading(false);
         setIsError(true);
       });
@@ -119,24 +127,6 @@ import {useHistory} from "react-router-dom";
           className="btn btn-primary mt-3"
           onClick={timer}
           disabled={loading}
-         // onClick={()=> profileRole.map((u)=>{
-         //   if(u.authority == 'TEACHER'){
-         //     return setTimeout(() => {
-         //         {handleSubmit()}
-          //         push('/teacher/addTestHeader')
-          //       }, 2000);
-               
-          //     // return push('/teacher/addTestHeader')
-          //   }else if(u.authority=='STUDENT'){
-          //     return setTimeout(() => {
-          //       {handleSubmit()}
-          //       push('/user/alltests')
-          //     }, 2000);
-          //     // return push('/user/allTests')
-          //   }else{
-          //     return 'Something went wrong!'
-          //   }
-          // })}
         
         >
           {loading ? "Loading..." : "Log In"}
