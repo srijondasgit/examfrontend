@@ -35,6 +35,7 @@ function App() {
       <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
       <Route path="/user/allTests" component={GetTestIds} />
       <Route path="/user/testId/:id/getTest" component={TestDetail} />
+
       <Route path="/user/testId/:id/getStudentTest" component={StudentTestDetail} />
       <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
       <Route path="/profile/getProfileName" component={Admin} />
