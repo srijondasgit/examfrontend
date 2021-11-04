@@ -25,7 +25,6 @@ const UpsertAnswers = () => {
          copyIndexQuestion: copyIndexQuestion,
          copyQuestionText: copyQuestionText,
          copyScoreQuestion: copyScoreQuestion,
-    
         };
     
         const config = {
@@ -37,7 +36,7 @@ const UpsertAnswers = () => {
         axios
           .post(`/student/testId/${id}/upsertAnswers`, data, config)
           .then((res) => {
-            setData(res.data);
+           setData(res.data);
            setIndex("");
            setAnswerText("");
            setCopyIndexQuestion("");
