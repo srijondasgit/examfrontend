@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 function AddTestHeader() {
   const [testName, setTestName] = useState("");
@@ -10,6 +11,7 @@ function AddTestHeader() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState(null);
+  const {push} = useHistory();
 
   const handleSubmit = () => {
     setLoading(true);
@@ -50,6 +52,13 @@ function AddTestHeader() {
         setIsError(true);
       });
   };
+
+    const timer = ()=>{
+    setTimeout(() => {
+      {handleSubmit()}
+      push('/profile/getProfileName')
+    }, 3000);
+   }
 
   return (
     <div className="container p-3">
@@ -102,7 +111,7 @@ function AddTestHeader() {
         <button
           type="submit"
           className="btn btn-secondary mt-3"
-          onClick={handleSubmit}
+          onClick={timer}
           disabled={loading}
         >
           {loading ? "Loading..." : "Create Test"}
