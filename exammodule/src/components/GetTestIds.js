@@ -19,10 +19,11 @@ import {Link} from 'react-router-dom';
        },[])
     return (
         <div>
+         <h1>Students can submit their answer by selecting a particular test id.</h1>
             <ol>
                 {ids.map((id) => (
                      <div key={id.id}>
-                        <Link to={`/user/testId/${id.id}/getTest`}>
+                        <Link to={`/user/testId/${id.id}/getStudentTest`}>
                         {id.id}
                         </Link>
                    </div>
