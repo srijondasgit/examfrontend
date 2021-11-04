@@ -35,5 +35,4 @@ export default GetStudentTestIds;
 
 
 
-// /user/testId/_id/getTest
 
