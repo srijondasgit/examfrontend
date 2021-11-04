@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const Admin = () => {
   const [profileName, setProfileName] = useState("");
@@ -82,9 +83,12 @@ const Admin = () => {
           </div>
           {ownersTests.map((q) => {
             return (
-              <div key={q}>
-                <li>{q}</li>
-              </div>
+              // <div key={q}>
+              //   <li>{q}</li>
+              // </div>
+              <Link to={`/user/testId/${q}/getTest`}>
+                      <li>{q}</li>
+              </Link>
             );
           })}
         </ol>
