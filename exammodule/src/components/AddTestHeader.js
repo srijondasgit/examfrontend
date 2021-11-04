@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import Admin from "./Admin"
+import { Link } from "react-router-dom";
 
 function AddTestHeader() {
   const [testName, setTestName] = useState("");
@@ -124,6 +126,11 @@ function AddTestHeader() {
           </div>
         )}
       </div>
+
+      <div>
+          <Link><Admin/></Link>    
+      </div>
+
     </div>
   );
 }

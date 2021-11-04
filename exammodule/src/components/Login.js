@@ -212,7 +212,7 @@ import {useHistory} from "react-router-dom";
         if(u.authority == 'TEACHER') {
             push('/teacher/addTestHeader')
         } else if (u.authority == 'STUDENT') {
-            push('/user/allTests')
+            push('/student/allTests')
         } else {
             
         }

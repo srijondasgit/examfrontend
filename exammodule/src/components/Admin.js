@@ -53,12 +53,12 @@ const Admin = () => {
 
   return (
     <div>
-      <h1>My name is - {profileName}</h1>
+      {/* <h1>My name is - {profileName}</h1> */}
       {profileRole.map((u) => {
         if(u.authority=="TEACHER"){
         return (
           <div key={u.authority}>
-            <h1>My role is - {u.authority}</h1>
+            <h1>Teacher update from the list of tests : </h1>
           </div>
         );
         } else if (u.authority=="STUDENT"){
@@ -79,7 +79,7 @@ const Admin = () => {
       <div>
         <ol>
           <div>
-            <h1>My Test List:-</h1>
+            {/* <h1> </h1> */}
           </div>
           {ownersTests.map((q) => {
             return (

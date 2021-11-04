@@ -8,7 +8,7 @@ import QuestionRemoved from "./QuestionRemoved";
 import ModalInsertAnswer from "./ModalInsertAnswer";
 import ModalUpdateSubmissionHeader from "./ModalUpdateSubmissionHeader";
 
-const StudentTestDetail = () => {
+const StudentStartSubmission = () => {
   const { id, qid } = useParams();
 
   const { push } = useHistory();
@@ -44,7 +44,7 @@ const StudentTestDetail = () => {
       <p>Test Name - {test.testName}</p>
       <p>School Name - {test.schoolName}</p>
       <p>Class Name - {test.className}</p>
-      <Link> <ModalUpdateSubmissionHeader id={test.id} config={config} /> </Link>
+      <Link> <ModalUpdateSubmissionHeader id={id} qid={q.id} config={config} /> </Link>
       {/* <p><Link to={`/teacher/testId/${id}/getSubmissions`}>Submissions</Link></p> */}
       <br />
       {/* <div>
@@ -74,7 +74,7 @@ const StudentTestDetail = () => {
                       <th hidden>Question Id</th>
                       <th>Question Text</th>
                       <th>Score</th>
-                      {/* <th>Update Submission Header</th> */}
+                      <th>Update Submission Header</th>
                       <th>Answer</th>
 
                       {/* <th>Submissions</th> */}
@@ -86,12 +86,26 @@ const StudentTestDetail = () => {
                       <th hidden>{q.id}</th>
                       <td>{q.questionText}</td>
                       <td>{q.score}</td>
-                        {/* <td><Link>
-                              <ModalUpdateSubmissionHeader id={id} qid={q.id} config={config} />
-                            </Link>
-                      </td> */}
+                        <td><Link
+                        // onClick={() => {
+                        // axios.delete(
+                        //     `/teacher/testId/${id}/questionId/${q.id}`,
+                        //     config
+                        // );
+                        // }}
+                      >
+                          <ModalUpdateSubmissionHeader id={id} qid={q.id} config={config} />
+                      </Link>
+                      </td>
                       
-                      <td><Link>
+                      <td><Link
+                        // onClick={() => {
+                        // axios.delete(
+                        //     `/teacher/testId/${id}/questionId/${q.id}`,
+                        //     config
+                        // );
+                        // }}
+                      >
                           <ModalInsertAnswer id={id} qid={q.id} config={config} />
                       </Link>
                       </td>
@@ -122,4 +136,4 @@ const StudentTestDetail = () => {
   );
 };
 
-export default StudentTestDetail;
+export default StudentStartSubmission;
