@@ -7,6 +7,7 @@ import {Button} from "react-bootstrap";
 
 function AnswerInfo() {
   const { id, uid, handle } = useParams();
+  const {push} = useHistory();
 
   //const [details, setDetails] = useState({});
   const [answers, setAnswers] = useState([]);
@@ -47,7 +48,14 @@ function AnswerInfo() {
     axios
       .post(`/teacher/testId/${id}/submissionId/${uid}/updateTotalAndEmail`,  thisData, config)
       .then((res) => {
-        console.log(res)
+         
+          setTimeout(() => {
+            alert('Successfully sent total scores to student via an email!');
+            push(`/teacher/testId/${id}/getSubmissions`)
+          }, 2000);
+         
+
+        console.log(res);
         setNotification("");
       })
       .catch((err) => {
