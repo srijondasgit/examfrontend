@@ -28,7 +28,8 @@ const Admin = () => {
   useEffect(async () => {
     const re = await axios.get("/teacher/getOwnersTestsList", config);
     const ownersTests = re.data;
-    setOwnersTest(ownersTests);
+    let result = ownersTests.map(a => a.id);
+    setOwnersTest(result);
   }, []);
 
   // axios
