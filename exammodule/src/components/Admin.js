@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 const Admin = () => {
   const [profileName, setProfileName] = useState("");
   const [profileRole, setProfileRole] = useState([]);
+  const [ownersTestsId, setOwnersTestId] = useState([]);
+  const [ownersTestsName, setOwnersTestName] = useState([]);
   const [ownersTests, setOwnersTest] = useState([]);
 
   const config = {
@@ -28,8 +30,12 @@ const Admin = () => {
   useEffect(async () => {
     const re = await axios.get("/teacher/getOwnersTestsList", config);
     const ownersTests = re.data;
-    let result = ownersTests.map(a => a.id);
-    setOwnersTest(result);
+    let resultId = ownersTests.map(a => a.id);
+    setOwnersTestId(resultId);
+    let resultTestName = ownersTests.map(a => a.testName);
+    setOwnersTestName(resultTestName);
+    setOwnersTest(ownersTests);
+
   }, []);
 
   // axios
@@ -87,8 +93,11 @@ const Admin = () => {
               // <div key={q}>
               //   <li>{q}</li>
               // </div>
-              <Link to={`/user/testId/${q}/getTest`}>
-                      <li>{q}</li>
+              <Link to={`/user/testId/${q.id}/getTest`}>
+                      <li>{q.id}</li>
+                      <li>{q.testName}</li>
+                      <li>{q.schoolName}</li>
+                      <li>{q.className}</li>
               </Link>
             );
           })}
