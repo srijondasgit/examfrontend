@@ -94,13 +94,13 @@ const Admin = () => {
 
               <div key={idx}>
               <div>
-                <Table striped bordered hover>
+                <Table striped bordered hover >
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Test Name</th>
-                      <th>School Name</th>
-                      <th>Class Name</th>
+                      <th width={'20%'}>Id</th>
+                      <th width={'20%'}>Test Name</th>
+                      <th width={'20%'}>School Name</th>
+                      <th width={'20%'}>Class Name</th>
                    </tr>
                   </thead>
                   <tbody>
