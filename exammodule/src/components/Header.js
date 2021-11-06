@@ -1,38 +1,4 @@
-// import React from 'react';
-// import {Link} from 'react-router-dom';
-
-// const Header = () => {
-//   return (
-//     <div className="ui secondary pointing menu">
-//       <Link to="/" className="item">
-//         Sign Up
-//       </Link>
-//       <Link to="/user/authenticate" className="item">
-//         Log In
-//       </Link>
-//       <Link to="/teacher/addTestHeader" className="item">
-//         Test Header
-//       </Link>
-//       {/* <Link to={`/teacher/testId/${id}/addQuestion`} className="item">
-//         Add Question
-//       </Link> */}
-//       <Link to="/user/allTests" className="item">
-//         Show all test ids
-//       </Link>
-//       <Link to="/profile/getProfileName" className="item">
-//         My detail
-//       </Link>
-//       <Link to="/student/allTests" className="item">
-//         Student all tests
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export default Header;
-
-
-import React from 'react';
+import React, {useState} from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Header.css'
@@ -41,6 +7,10 @@ import { AiFillLinkedin, AiFillFacebook , AiFillTwitterSquare} from "react-icons
 
 class Header extends React.Component  {
 
+  constructor(props) {
+    super(props);
+    this.state = {isLoggedIn: false};
+  }
   // constructor(props) {
   //     super(props);
   //     this.state = {
@@ -84,8 +54,8 @@ class Header extends React.Component  {
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ float: 'right'}} />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link href="/"> Register </Nav.Link>
-                    <Nav.Link href="/user/authenticate" className="rightBorder"> Log in </Nav.Link>
+                    {/* <Nav.Link href="/register"> Register </Nav.Link> */}
+                    <Nav.Link href="/user/authenticate" className="rightBorder"> Log In</Nav.Link>
 
                     <Nav.Link href="https://www.youtube.com/channel/UCd6FQ7_X5U5bpWjxDizqyxQ" className="rightBorder" target="_blank"> 
                         Online Classes
