@@ -1,14 +1,20 @@
 import React, {useState} from "react";
 import { Modal, Button } from "react-bootstrap";
 import UpdateSubmissionHeader from "./UpdateSubmissionHeader";
+import { useHistory } from "react-router-dom";
+import Student2TestDetail from "./Student2TestDetail";
 
-const ModalUpdateSubmissionHeader = () => {
-    const [show, setShow] = useState(false);
+const ModalUpdateSubmissionHeader = ({id}) => {
+  const {push} = useHistory();
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
    function refreshPage() {
-    window.location.reload(false);
+    // window.location.reload(false);
+    handleClose();
+    push(`/user/testId/${id}/disappearedTestHeader`);
+  
   }
 
     return(
@@ -26,7 +32,7 @@ const ModalUpdateSubmissionHeader = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose, refreshPage}>
+            <Button variant="primary" onClick={refreshPage}>
               Ok
             </Button>
           </Modal.Footer>
