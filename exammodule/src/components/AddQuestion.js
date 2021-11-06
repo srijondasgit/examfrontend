@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
-// import { Button } from "react-bootstrap";
-
+import {Spinner} from "react-bootstrap";
 
 
 function AddQuestion() {
@@ -106,7 +105,7 @@ function AddQuestion() {
           onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? "Loading..." : "Add Question"}
+          {loading ? <Spinner animation="border" variant="info" /> : "Add Question"}
         </button>
         {data && (
           <div className="mt-3">
