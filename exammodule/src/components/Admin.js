@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {Table} from "react-bootstrap";
 
 const Admin = () => {
   const [profileName, setProfileName] = useState("");
@@ -88,17 +89,62 @@ const Admin = () => {
           <div>
             {/* <h1> </h1> */}
           </div>
-          {ownersTests.map((q) => {
+          {ownersTests.map((q, idx) => {
             return (
+
+              <div key={idx}>
+              <div>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Test Name</th>
+                      <th>School Name</th>
+                      <th>Class Name</th>
+                   </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><Link to={`/user/testId/${q.id}/getTest`}>{q.id}</Link></td>
+                      <th>{q.testName}</th>
+                      <td>{q.schoolName}</td>
+                      <td>{q.className}</td>
+                        {/* <td><Link>
+                              <ModalUpdateSubmissionHeader id={id} qid={q.id} config={config} />
+                            </Link>
+                      </td> */}
+                      
+                      {/* <td> */}
+                        {/* <Link
+                          onClick={() => {
+                            axios.get(
+                              `/teacher/testId/${id}/getSubmissions`,
+                              config
+                            );
+                          }}
+                          to={`/teacher/testId/${id}/getSubmissions`}
+                        >
+                         getSubmissions
+                        </Link> */}
+                      {/* </td> */}
+                     
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
+            </div>
+
               // <div key={q}>
               //   <li>{q}</li>
               // </div>
-              <Link to={`/user/testId/${q.id}/getTest`}>
-                      <li>{q.id}</li>
-                      <li>{q.testName}</li>
-                      <li>{q.schoolName}</li>
-                      <li>{q.className}</li>
-              </Link>
+
+
+              // <Link to={`/user/testId/${q.id}/getTest`}>
+              //         <li>{q.id}</li>
+              //         <li>{q.testName}</li>
+              //         <li>{q.schoolName}</li>
+              //         <li>{q.className}</li>
+              // </Link>
             );
           })}
         </ol>
