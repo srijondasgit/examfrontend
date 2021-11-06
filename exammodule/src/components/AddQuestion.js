@@ -20,6 +20,8 @@ function AddQuestion() {
     setLoading(true);
     setIsError(false);
 
+  
+
     const data = {
       index: index,
       questionText: questionText,
@@ -42,6 +44,7 @@ function AddQuestion() {
         setScore("");
 
         setLoading(false);
+        window.location.reload(false);
       })
       .catch((err) => {
         setLoading(false);
