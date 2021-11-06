@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 // import { Link } from "react-router-dom";
+import {Spinner} from "react-bootstrap";
 
 function Form() {
   const [name, setName] = useState("");
@@ -41,12 +42,13 @@ function Form() {
   };
 
   const selected = document.querySelector("#dropdown");
+ 
 
   return (
-    <div className="container p-3">
+    <div className="container">
       <h5 className="d-inline-block mb-3"> </h5>
-      <div style={{ maxWidth: 350 }}>
-        <div className="form-group">
+      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+       <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -98,7 +100,7 @@ function Form() {
           onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? "Loading..." : "Submit"}
+          {loading ? <Spinner animation="border" variant="info" /> : "Submit"}
         </button>
         {data && (
           <div className="mt-3">
