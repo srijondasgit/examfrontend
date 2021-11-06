@@ -63,9 +63,9 @@ function AddTestHeader() {
    }
 
   return (
-    <div className="container p-3">
+    <div className="container">
       <h5 className="d-inline-block mb-3"> </h5>
-      <div style={{ maxWidth: 350 }}>
+      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
         <div className="form-group">
           <label htmlFor="testName">Test Name</label>
           <input
@@ -136,5 +136,3 @@ function AddTestHeader() {
 }
 
 export default AddTestHeader;
-
-
