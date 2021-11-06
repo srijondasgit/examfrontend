@@ -32,9 +32,12 @@ const TestDetail = () => {
     },
   };
 
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  
+
 
   return (
     <article>
@@ -52,7 +55,7 @@ const TestDetail = () => {
       </div>
       <br />
       <div>
-        <Button onClick={() => push("/user/allTests")}>Go back</Button>
+        <Button onClick={() => push("/teacher/addTestHeader")}>Go back</Button>
       </div>
       <hr />
       <div>
@@ -84,16 +87,36 @@ const TestDetail = () => {
                       <td>{q.score}</td>
                       <td>
                         <Link
+                        onClick={()=>{
+                          const deleteQuestion = async () => {
+                            axios
+                              .delete(`/teacher/testId/${id}/questionId/${q.id}`, config)
+                              .then((res) => {
+                                 
+                                  setTimeout(() => {
+                                    alert('Question removed successfully!');
+                                    refreshPage();
+                                  }, 1000);
+                              })
+                              .catch((err) => {
+                                console.log(err);
+                              });
+                          };
+                          deleteQuestion();
+                        }}
 
-                          onClick={() => {
-                            axios.delete(
-                              `/teacher/testId/${id}/questionId/${q.id}`,
-                              config
-                            );
-                          }}
+                          // onClick={() => {
+                          //   axios.delete(
+                          //     `/teacher/testId/${id}/questionId/${q.id}`,
+                          //     config
+                          //   );
+                          // }}
+
                           // to={`/teacher/testId/${id}/questionId/${qid}`}
                         >
-                         <QuestionRemoved id={id} qid={q.id} config={config} />
+                         {/* <QuestionRemoved id={id} qid={q.id} config={config} /> */}
+                         <Button>Delete</Button>
+                        
                         </Link>
                       </td>
                       <td>
