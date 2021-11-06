@@ -41,6 +41,10 @@ const Student2TestDetail = () => {
 
   return (
     <article>
+       <div className="container">
+      <h5 className="d-inline-block mb-3"> </h5>
+      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+      
       <h1>ID - {test.id}</h1>
       <p>Test Name - {test.testName}</p>
       <p>School Name - {test.schoolName}</p>
@@ -60,6 +64,8 @@ const Student2TestDetail = () => {
       {/* <div>
         <Button onClick={() => push("/student/allTests")}>Go back</Button>
       </div> */}
+      </div>
+      </div>
       <hr />
       <div>
         <h1>Questions</h1>
