@@ -5,12 +5,13 @@ import { Table, Button } from "react-bootstrap";
 import ModalAddQuestion from "./ModalAddQuestion";
 import { Link } from "react-router-dom";
 import QuestionRemoved from "./QuestionRemoved";
-import ModalInsertAnswer from "./ModalInsertAnswer";
+// import ModalInsertAnswer from "./ModalInsertAnswer";
 import ModalUpdateSubmissionHeader from "./ModalUpdateSubmissionHeader";
 
 const StudentTestDetail = () => {
   const { id, qid } = useParams();
 
+  
   const { push } = useHistory();
   const [test, setTest] = useState({});
   // within useState square brackets must be used to recognize questions as an array
@@ -75,7 +76,8 @@ const StudentTestDetail = () => {
                       <th>Question Text</th>
                       <th>Score</th>
                       {/* <th>Update Submission Header</th> */}
-                      <th>Answer</th>
+
+                      {/* <th>Answer</th> */}
 
                       {/* <th>Submissions</th> */}
                     </tr>
@@ -91,13 +93,13 @@ const StudentTestDetail = () => {
                             </Link>
                       </td> */}
                       
-                      <td><Link>
+                      {/* <td><Link>
                           <ModalInsertAnswer id={id} qid={q.id} config={config} />
                       </Link>
-                      </td>
+                      </td> */}
+
                       {/* <td> */}
                         {/* <Link
-
                           onClick={() => {
                             axios.get(
                               `/teacher/testId/${id}/getSubmissions`,
