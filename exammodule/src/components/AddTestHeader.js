@@ -126,6 +126,7 @@ function AddTestHeader() {
           </div>
         )}
       </div>
+      <hr style={{width: 1150}}/>
 
       <div>
           <Link><Admin/></Link>    
