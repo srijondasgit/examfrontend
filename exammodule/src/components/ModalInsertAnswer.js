@@ -3,6 +3,8 @@ import { Modal, Button } from "react-bootstrap";
 import UpsertAnswers from "./UpsertAnswers";
 const ModalInsertAnswer = () => {
     const [show, setShow] = useState(false);
+    // const [disable, setDisable] = useState(false);
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -13,7 +15,7 @@ const ModalInsertAnswer = () => {
     return(
         <>
         <Button variant="primary" onClick={handleShow}>
-          Provide an answer
+          Insert/Update an answer
         </Button>
   
         <Modal show={show} onHide={handleClose}>
