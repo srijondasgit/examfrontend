@@ -11,6 +11,7 @@ import GetTestIds from './components/GetTestIds';
 import GetStudentTestIds from './components/GetStudentTestIds';
 import TestDetail from './components/TestDetail';
 import StudentTestDetail from './components/StudentTestDetail';
+import Student2TestDetail from './components/Student2TestDetail';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import QuestionRemoved from './components/QuestionRemoved';
@@ -37,6 +38,9 @@ function App() {
       <Route path="/user/testId/:id/getTest" component={TestDetail} />
 
       <Route path="/user/testId/:id/getStudentTest" component={StudentTestDetail} />
+
+      <Route path="/user/testId/:id/disappearedTestHeader" component={Student2TestDetail} />
+
       <Route path="/teacher/testId/:id/questionId/:qid" component={QuestionRemoved} />
       <Route path="/profile/getProfileName" component={Admin} />
       <Route path="/teacher/testId/:id/getSubmissions" component={SubmissionsTeacher} />
