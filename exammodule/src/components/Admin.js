@@ -66,7 +66,7 @@ const Admin = () => {
         if(u.authority=="TEACHER"){
         return (
           <div key={u.authority}>
-            <h1>Teacher update from the list of tests : </h1>
+            {/* <h1>Teacher update from the list of tests : </h1> */}
           </div>
         );
         } else if (u.authority=="STUDENT"){
