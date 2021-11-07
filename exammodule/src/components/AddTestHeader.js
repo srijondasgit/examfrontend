@@ -69,6 +69,7 @@ function AddTestHeader() {
         <div className="form-group">
           <label htmlFor="testName">Test Name</label>
           <input
+          style={{width: 500}}
             type="text"
             className="form-control"
             id="testName"
@@ -82,6 +83,7 @@ function AddTestHeader() {
             School Name
           </label>
           <input
+          style={{width: 500}}
             type="text"
             className="form-control"
             id="schoolName"
@@ -96,6 +98,7 @@ function AddTestHeader() {
             Class Name
           </label>
           <input
+          style={{width: 500}}
             type="text"
             className="form-control"
             id="className"
