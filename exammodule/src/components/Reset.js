@@ -43,6 +43,7 @@ function Reset() {
             Email
           </label>
           <input
+          style={{width: 500}}
             type="email"
             className="form-control"
             id="email"
@@ -57,6 +58,7 @@ function Reset() {
             Name
           </label>
           <input
+          style={{width: 500}}
             type="name"
             className="form-control"
             id="name"
