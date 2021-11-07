@@ -54,12 +54,7 @@ class Header extends React.Component  {
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ float: 'right'}} />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    {/* <Nav.Link href="/register"> Register </Nav.Link> */}
-                    <Nav.Link href="/user/authenticate" className="rightBorder"> Log In</Nav.Link>
-
-                    <Nav.Link href="https://www.youtube.com/channel/UCd6FQ7_X5U5bpWjxDizqyxQ" className="rightBorder" target="_blank"> 
-                        Online Classes
-                    </Nav.Link>
+                    <Nav.Link href="/user/authenticate"> Log In</Nav.Link>
                     <Nav.Link href="/teacher/addTestHeader" className="rightBorder"> Test Header </Nav.Link>
                     <Nav.Link href="/user/allTests" className="rightBorder"> Show all test ids </Nav.Link>
                     <Nav.Link href="/student/allTests" className="rightBorder"> Student all tests </Nav.Link>
