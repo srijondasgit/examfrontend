@@ -77,10 +77,10 @@ const StudentTestDetail = () => {
                 <Table striped bordered hover>
                   <thead>
                     <tr>
-                      <th>Index</th>
-                      <th hidden>Question Id</th>
-                      <th>Question Text</th>
-                      <th>Score</th>
+                      <th width={'20%'}>Index</th>
+                      <th width={'20%'} hidden>Question Id</th>
+                      <th width={'20%'}>Question Text</th>
+                      <th width={'20%'}>Score</th>
                       {/* <th>Update Submission Header</th> */}
 
                       {/* <th>Answer</th> */}
