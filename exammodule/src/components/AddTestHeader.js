@@ -66,6 +66,9 @@ function AddTestHeader() {
     <div className="container">
       <h5 className="d-inline-block mb-3"> </h5>
       <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+      <h1>Create Test Section</h1>
+      
+
         <div className="form-group">
           <label htmlFor="testName">Test Name</label>
           <input
@@ -132,6 +135,9 @@ function AddTestHeader() {
       <hr style={{width: 1150}}/>
 
       <div>
+      <h1 style={{marginLeft: 30}}>Update Tests Section</h1>
+      
+
           <Link><Admin/></Link>    
       </div>
 
