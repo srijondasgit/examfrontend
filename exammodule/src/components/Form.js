@@ -51,6 +51,7 @@ function Form() {
        <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
+            style={{width: 500}}
             type="text"
             className="form-control"
             id="name"
@@ -64,6 +65,7 @@ function Form() {
             Email
           </label>
           <input
+            style={{width: 500}}
             type="text"
             className="form-control"
             id="email"
@@ -76,6 +78,7 @@ function Form() {
 
         <div>
           <select
+            style={{width: 500}}
             className="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example"
             id="dropdown"
