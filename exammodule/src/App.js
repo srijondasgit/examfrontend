@@ -30,6 +30,8 @@ function App() {
      <Header />
       <Switch>
       <Route exact path="/register" component={Form}/>
+
+      <Route exact path="/" component={Login}/>
       <Route path="/user/authenticate" component={Login}/>
       <Route path="/user/resetPassword" component={Reset}/>
       <Route path="/teacher/addTestHeader" component={AddTestHeader}/>
