@@ -94,6 +94,7 @@ import Form from "./Form";
             Username
           </label>
           <input
+            style={{width: 500}}
             type="email"
             className="form-control"
             id="userName"
@@ -109,6 +110,7 @@ import Form from "./Form";
             Password
           </label>
           <input
+            style={{width: 500}}
             type="password"
             className="form-control"
             id="password"
