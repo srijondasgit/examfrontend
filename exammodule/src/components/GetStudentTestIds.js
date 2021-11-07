@@ -20,10 +20,11 @@ import {Table} from "react-bootstrap";
        },[])
     return (
         <div>
+          <h1>Choose a test and submit answers</h1>
             <ol>
                 {ids.map((id, idx) => (
                      <div key={idx}>
-                     <div>
+                     <div style={{paddingRight: 20}}>
                        <Table striped bordered hover>
                          <thead>
                            <tr>
