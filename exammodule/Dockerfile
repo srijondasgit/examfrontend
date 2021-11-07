@@ -4,5 +4,5 @@ COPY package.json /examfrontend/exammodule
 COPY package-lock.json /examfrontend/exammodule
 RUN npm ci --only=production && npm cache clean --force
 COPY . /examfrontend/exammodule
-CMD npm start
+CMD PORT=3002 npm start
 EXPOSE 3002
