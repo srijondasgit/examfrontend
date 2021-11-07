@@ -1,8 +1,8 @@
 FROM node:12-alpine3.14
-WORKDIR /elearning-core
-COPY package.json /elearning-core
-COPY package-lock.json /elearning-core
+WORKDIR /examfrontend/exammodule
+COPY package.json /examfrontend/exammodule
+COPY package-lock.json /examfrontend/exammodule
 RUN npm ci --only=production && npm cache clean --force
-COPY . /elearning-core
+COPY . /examfrontend/exammodule
 CMD npm start
-EXPOSE 3001
+EXPOSE 3002
