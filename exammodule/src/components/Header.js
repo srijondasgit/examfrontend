@@ -59,7 +59,6 @@ class Header extends React.Component  {
                     <Nav.Link href="/user/allTests" className="rightBorder"> Show all test ids </Nav.Link>
                     <Nav.Link href="/student/allTests" className="rightBorder"> Student all tests </Nav.Link>
                     <Nav.Link href="/profile/getProfileName" className="rightBorder"> My details </Nav.Link>
-                    <Nav.Link href="/profile/getProfileName" className="rightBorder"> My details </Nav.Link>
                     <Nav.Link href="/user/logout" className="rightBorder"> Logout </Nav.Link>
                     {/* <Nav.Link href="/contact-us" className="rightBorder"> Contact Us </Nav.Link> */}
                     {/* <Nav.Link href="#" style={{ display: 'none'}}   onClick={() => this._onSave('Zoe')} className="borderLeft"> Bunny Story </Nav.Link>
