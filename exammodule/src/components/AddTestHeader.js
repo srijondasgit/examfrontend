@@ -15,7 +15,7 @@ function AddTestHeader() {
   const [data, setData] = useState(null);
   const {push} = useHistory();
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     setLoading(true);
     setIsError(false);
 
@@ -36,7 +36,7 @@ function AddTestHeader() {
       }
     }
 
-    axios
+    await axios
       .post("/teacher/addTestHeader", data, config)
       .then((res) => {
         localStorage.setItem('id', res.data.id);
@@ -55,12 +55,13 @@ function AddTestHeader() {
       });
   };
 
-    const timer = ()=>{
-    setTimeout(() => {
-      {handleSubmit()}
-      push('/profile/getProfileName')
+  const timer = async()=>{
+    setTimeout(async() => {
+      {await handleSubmit()}
+      //push('/profile/getProfileName')
+      await push(`/user/testId/${localStorage.getItem('id')}/getTest`)
     }, 3000);
-   }
+  }
 
   return (
     <div className="container">
