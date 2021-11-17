@@ -28,7 +28,7 @@ import {Table} from "react-bootstrap";
                        <Table striped bordered hover>
                          <thead>
                            <tr>
-                             <th width={'20%'}>Id</th>
+                             {/* <th width={'20%'}>Id</th> */}
                              <th width={'20%'}>Test Name</th>
                              <th width={'20%'}>School Name</th>
                              <th width={'20%'}>Class Name</th>
@@ -36,8 +36,8 @@ import {Table} from "react-bootstrap";
                          </thead>
                          <tbody>
                            <tr>
-                             <td><Link to={`/user/testId/${id.id}/getStudentTest`}>{id.id}</Link></td>
-                             <th>{id.testName}</th>
+                             {/* <td><Link to={`/user/testId/${id.id}/getStudentTest`}>{id.id}</Link></td> */}
+                             <th><Link to={`/user/testId/${id.id}/getStudentTest`}>{id.testName}</Link></th>
                              <td>{id.schoolName}</td>
                              <td>{id.className}</td>
                                {/* <td><Link>
