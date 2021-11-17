@@ -91,14 +91,14 @@ import Form from "./Form";
       <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
         <div className="form-group">
           <label htmlFor="userName" className="mt-2">
-            Username
+            Enter Email
           </label>
           <input
             style={{width: 500}}
             type="email"
             className="form-control"
             id="userName"
-            placeholder="Enter userName"
+            placeholder="Enter Email"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             
