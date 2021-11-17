@@ -66,7 +66,7 @@ const Admin = () => {
         if(u.authority=="TEACHER"){
         return (
           <div key={u.authority}>
-            {/* <h1>Teacher update from the list of tests : </h1> */}
+            <h1>Teacher update from the list of tests : </h1>
           </div>
         );
         } else if (u.authority=="STUDENT"){
@@ -97,7 +97,7 @@ const Admin = () => {
                 <Table striped bordered hover >
                   <thead>
                     <tr>
-                      <th width={'20%'}>Id</th>
+                      {/* <th width={'20%'}>Id</th> */}
                       <th width={'20%'}>Test Name</th>
                       <th width={'20%'}>School Name</th>
                       <th width={'20%'}>Class Name</th>
@@ -105,8 +105,8 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td><Link to={`/user/testId/${q.id}/getTest`}>{q.id}</Link></td>
-                      <th>{q.testName}</th>
+                      {/* <td><Link to={`/user/testId/${q.id}/getTest`}>{q.id}</Link></td> */}
+                      <th><Link to={`/user/testId/${q.id}/getTest`}>{q.testName}</Link></th>
                       <td>{q.schoolName}</td>
                       <td>{q.className}</td>
                         {/* <td><Link>
