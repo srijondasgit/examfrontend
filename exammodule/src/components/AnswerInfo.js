@@ -67,7 +67,10 @@ function AnswerInfo() {
     <div>
       <ol>
         {answers.map((answer) => (
-          <div>
+          <div className="container">
+            <h5 className="d-inline-block mb-3"> </h5>
+      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+      
              
             <li>
               <h1>AnswerID - {answer.id}</h1>
@@ -77,9 +80,10 @@ function AnswerInfo() {
              
             </li>
           </div>
+          </div>
         ))}
       </ol>
-      <Button onClick={sendNotification}>Send Notification</Button>
+      <Button onClick={sendNotification} style={{marginLeft: 150}}>Send Notification</Button>
     </div>
   );
 }
