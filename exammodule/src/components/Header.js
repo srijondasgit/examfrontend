@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Header.css'
 import { AiFillLinkedin, AiFillFacebook , AiFillTwitterSquare} from "react-icons/ai";
+import Logout from './Logout';
+import Login from './Login';
 
 
 class Header extends React.Component  {
@@ -54,12 +56,12 @@ class Header extends React.Component  {
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ float: 'right'}} />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link href="/user/authenticate"> Log In</Nav.Link>
+                    <Nav.Link href={localStorage.getItem('token') === null ? '/user/authenticate': '/user/logout'}>{localStorage.getItem('token') === null ? 'Login': 'Logout'}</Nav.Link>
                     <Nav.Link href="/teacher/addTestHeader" className="rightBorder"> Test Header </Nav.Link>
                     <Nav.Link href="/user/allTests" className="rightBorder"> Show all test ids </Nav.Link>
                     <Nav.Link href="/student/allTests" className="rightBorder"> Student all tests </Nav.Link>
                     <Nav.Link href="/profile/getProfileName" className="rightBorder"> My details </Nav.Link>
-                    <Nav.Link href="/user/logout" className="rightBorder"> Logout </Nav.Link>
+                    {/* <Nav.Link href="/user/logout" className="rightBorder"> Logout </Nav.Link> */}
                     {/* <Nav.Link href="/contact-us" className="rightBorder"> Contact Us </Nav.Link> */}
                     {/* <Nav.Link href="#" style={{ display: 'none'}}   onClick={() => this._onSave('Zoe')} className="borderLeft"> Bunny Story </Nav.Link>
                     <Nav.Link href="#" style={{ display: 'none'}}  onClick={() => this._onSave('more')} > More </Nav.Link> */}
