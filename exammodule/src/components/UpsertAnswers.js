@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
+import TestDetail from './TestDetail';
 
 
 const UpsertAnswers = () => {
@@ -41,7 +42,7 @@ const UpsertAnswers = () => {
            setAnswerText("");
            setCopyIndexQuestion("");
            setCopyScoreQuestion("");
-           setCopyQuestionText("")
+           setCopyQuestionText("");
     
             setLoading(false);
           })
