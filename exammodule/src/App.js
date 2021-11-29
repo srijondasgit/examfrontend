@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import Reset from './components/Reset';
 
 import Header from "./components/Header";
@@ -22,6 +21,8 @@ import AnswerInfo from './components/AnswerInfo';
 import UpdateSubmissionHeader from './components/UpdateSubmissionHeader';
 import UpsertAnswers from './components/UpsertAnswers';
 
+import Logout from './components/Logout';
+
 
 function App() {
   
@@ -34,7 +35,6 @@ function App() {
 
       <Route exact path="/" component={Login}/>
       <Route path="/user/authenticate" component={Login}/>
-      <Route path="/user/logout" component={Logout} />
       <Route path="/user/resetPassword" component={Reset}/>
       <Route path="/teacher/addTestHeader" component={AddTestHeader}/>
       <Route path="/teacher/testId/:id/addQuestion" component={AddQuestion}/>
@@ -53,6 +53,7 @@ function App() {
       <Route path="/student/testId/:id/insertUpdateSubmissionHeader" component={UpdateSubmissionHeader} />
       <Route path="/student/testId/:id/UpsertAnswers" component={UpsertAnswers} />
       <Route path="/student/allTests" component={GetStudentTestIds} />
+      <Route path="/user/logout" component={Logout} />
 
 
       </Switch>
