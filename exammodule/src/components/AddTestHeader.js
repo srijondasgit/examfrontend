@@ -15,7 +15,7 @@ function AddTestHeader() {
   const [data, setData] = useState(null);
   const {push} = useHistory();
 
-  const handleSubmit = async() => {
+  const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
 
@@ -36,7 +36,7 @@ function AddTestHeader() {
       }
     }
 
-    await axios
+    axios
       .post("/teacher/addTestHeader", data, config)
       .then((res) => {
         localStorage.setItem('id', res.data.id);
@@ -55,25 +55,24 @@ function AddTestHeader() {
       });
   };
 
-  const timer = async()=>{
-    setTimeout(async() => {
-      {await handleSubmit()}
-      //push('/profile/getProfileName')
-      await push(`/user/testId/${localStorage.getItem('id')}/getTest`)
+    const timer = ()=>{
+    setTimeout(() => {
+      {handleSubmit()}
+      push('/profile/getProfileName')
     }, 3000);
-  }
+   }
 
   return (
     <div className="container">
       <h5 className="d-inline-block mb-3"> </h5>
-      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+      <div style={{ background: "rgb(245 245 245)", borderRadius: 10, border: 1, borderColor: '#ccc'}}>
       <h1>Create Test Section</h1>
       
 
         <div className="form-group">
           <label htmlFor="testName">Test Name</label>
           <input
-          style={{width: 500}}
+          
             type="text"
             className="form-control"
             id="testName"
@@ -87,7 +86,7 @@ function AddTestHeader() {
             School Name
           </label>
           <input
-          style={{width: 500}}
+          
             type="text"
             className="form-control"
             id="schoolName"
@@ -102,7 +101,7 @@ function AddTestHeader() {
             Class Name
           </label>
           <input
-          style={{width: 500}}
+          
             type="text"
             className="form-control"
             id="className"
