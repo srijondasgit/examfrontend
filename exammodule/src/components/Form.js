@@ -47,11 +47,10 @@ function Form() {
   return (
     <div className="container">
       <h5 className="d-inline-block mb-3"> </h5>
-      <div style={{ padding: 10, margin: 20, background: "rgb(245 245 245)", width: '100%', borderRadius: 10, border: 1, borderColor: '#ccc'}}>
+      <div style={{ background: "rgb(245 245 245)", borderRadius: 10, border: 1, borderColor: '#ccc'}}>
        <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
-            style={{width: 500}}
             type="text"
             className="form-control"
             id="name"
@@ -65,7 +64,6 @@ function Form() {
             Email
           </label>
           <input
-            style={{width: 500}}
             type="text"
             className="form-control"
             id="email"
@@ -78,7 +76,6 @@ function Form() {
 
         <div>
           <select
-            style={{width: 500}}
             className="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example"
             id="dropdown"
