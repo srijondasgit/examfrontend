@@ -22,6 +22,9 @@ const StudentTestDetail = () => {
         const { data } = await axios.get(`/user/testId/${id}/getTest`);
         setTest(data);
         setQuestions(data.questions);
+        // await localStorage.setItem('qid', data.questions[0].id)
+
+        // console.log(data.questions[0].id);
       } catch (err) {
         console.error(err);
       }
@@ -70,7 +73,7 @@ const StudentTestDetail = () => {
       {/* Div below returns all the questions */}
       <div>
         {questions.map(function (q, idx) {
-          
+          const local = localStorage.setItem('qid', q.id);
           return (
             <div key={idx}>
               <div>
