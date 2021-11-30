@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
-import TestDetail from './TestDetail';
+import StudentTestDetail from './StudentTestDetail';
 
-
-const UpsertAnswers = () => {
+const UpsertAnswers = ({local}) => {
    const {id} = useParams();
    const [index, setIndex] = useState("");
    const [answerText, setAnswerText] = useState("");
@@ -35,7 +34,7 @@ const UpsertAnswers = () => {
         };
     
         axios
-          .post(`/student/testId/${id}/upsertAnswers`, data, config)
+          .post(`/student/testId/${id}/questionId/${localStorage.getItem('qid')}/upsertAnswersUpdated`, data, config)
           .then((res) => {
            setData(res.data);
            setIndex("");
