@@ -114,9 +114,9 @@ const Student2TestDetail = () => {
                       <th hidden>{q.id}</th>
                       <td>{q.questionText}</td>
                       <td>{q.score}</td>
-                      {/* <td id="td">
+                      <td id="td">
                         {previous(id,q.id)}
-                      </td> */}
+                      </td>
                       {/* <td><Link>
                               <ModalUpdateSubmissionHeader id={id} qid={q.id} config={config} />
                             </Link>
